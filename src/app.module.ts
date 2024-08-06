@@ -16,6 +16,7 @@ import { APP_GUARD } from '@nestjs/core';
     GraphQLModule.forRoot<ApolloDriverConfig>({
 
       driver: ApolloDriver,
+
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
 
     }),
@@ -23,6 +24,7 @@ import { APP_GUARD } from '@nestjs/core';
     ConfigModule.forRoot({
 
       isGlobal: true,
+
       envFilePath: '.env'
 
     }),
@@ -36,7 +38,11 @@ import { APP_GUARD } from '@nestjs/core';
   providers: [
 
     PrismaService,
-    { provide: APP_GUARD, useClass: AccessTokenGuard }
+
+    {
+      provide: APP_GUARD,
+      useClass: AccessTokenGuard
+    }
 
   ],
 

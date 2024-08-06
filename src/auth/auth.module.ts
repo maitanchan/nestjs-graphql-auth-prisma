@@ -9,12 +9,19 @@ import { RefreshTokenStrategy } from './strategies/refreshToken.strategy';
 @Module({
 
   providers: [
+
     AuthResolver,
+
     AuthService,
+
     PrismaService,
+
     JwtService,
+
     AccessTokenStrategy,
+
     RefreshTokenStrategy
+
   ]
 
 })
